@@ -7,14 +7,25 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
-    <p th:text="${'Name: ' + skill.name}"></p>
-    <p th:text="${'Description: ' + skill.description}"></p>
-    <p> Jobs:
-        <ul>
-            <li th:each="job : ${skill.jobs}">
-                <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
-            </li>
-        </ul>
-    </p>
-</div>
+<table class="job-listing">
+    <tr>
+        <td>Name</td>
+        <td th:text="${skill.name}"></td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td th:text="${skill.description}"></td>
+    </tr>
+    <tr>
+        <td>Jobs</td>
+        <td>
+            <ul>
+                <li th:each="job : ${skill.jobs}">
+                    <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+</table>
+
